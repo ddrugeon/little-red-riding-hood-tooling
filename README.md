@@ -26,7 +26,7 @@ docker build -t little-red-hood-tooling .
 ```bash
 export REPO_ROOT_DIR=<path to the root of the hand\'s on repository>
 export KUBECONFIG=<path to the kubeconfig file>
-docker run --rm -v $KUBECONFIG:/home/tooling/kubeconfig.yaml -v $REPO_ROOT_DIR/labs/:/apps -it ghcr.io/ddrugeon/little-red-riding-hood-tooling:latest
+docker run --rm -v $KUBECONFIG:/home/tooling/.kube/config -v $REPO_ROOT_DIR/labs/:/apps -it ghcr.io/ddrugeon/little-red-riding-hood-tooling:latest
 ```
 
 ### Run the container with a shell
@@ -34,7 +34,7 @@ docker run --rm -v $KUBECONFIG:/home/tooling/kubeconfig.yaml -v $REPO_ROOT_DIR/l
 ```bash
 export REPO_ROOT_DIR=<path to the root of the hand\'s on repository>
 export KUBECONFIG=<path to the kubeconfig file>
-docker run --rm -v $KUBECONFIG:/home/tooling/kubeconfig.yaml -v $REPO_ROOT_DIR/labs/:/apps -it ghcr.io/ddrugeon/little-red-riding-hood-tooling:latest /bin/bash
+docker run --rm -v $KUBECONFIG:/home/tooling/.kube/config -v $REPO_ROOT_DIR/labs/:/apps -it ghcr.io/ddrugeon/little-red-riding-hood-tooling:latest /bin/bash
 ```
 
 ## License
