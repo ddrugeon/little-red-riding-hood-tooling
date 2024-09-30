@@ -7,6 +7,8 @@ on:
 jobs:
   ghcr_push:
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
     if: github.event_name == 'push'
 
     steps:
