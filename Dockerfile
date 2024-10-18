@@ -50,7 +50,8 @@ RUN apk add --no-cache curl ca-certificates openssl openssh unzip bash tar && \
 #
 # Installation de linkerd
     curl -sLO "https://github.com/linkerd/linkerd2/releases/download/${LINKERD_SCRIPT}" && \
-    mv ${LINKERD_SCRIPT} /usr/bin/linkerd
+    mv ${LINKERD_SCRIPT} /usr/bin/linkerd \
+    chmod +x /usr/bin/linkerd
 
 # Stage d'exécution
 FROM alpine:latest
