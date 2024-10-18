@@ -17,6 +17,7 @@ RUN case $(uname -m) in \
     esac && \
     echo "export ARCH=${ARCH}" > /envfile && \
     echo "export LINKERD_SCRIPT=${LINKERD_SCRIPT}" >> /envfile && \
+    echo "export LINKERD_VERSION=${LINKERD_VERSION}" >> /envfile && \
     cat /envfile
 
 # Installer les outils nécessaires
@@ -48,9 +49,9 @@ RUN apk add --no-cache curl ca-certificates openssl openssh unzip bash tar && \
     mv boundary /usr/bin/boundary && \
     chmod +x /usr/bin/boundary && \
 #
-# Installation de linkerd
-    curl -sLO "https://github.com/linkerd/linkerd2/releases/download/${LINKERD_SCRIPT}" && \
-    mv ${LINKERD_SCRIPT} /usr/bin/linkerd \
+# Installation de linkerd \
+    curl -sLO "https://github.com/linkerd/linkerd2/releases/download/edge-${LINKERD_VERSION}/${LINKERD_SCRIPT}" && \
+    mv ${LINKERD_SCRIPT} /usr/bin/linkerd && \
     chmod +x /usr/bin/linkerd
 
 # Stage d'exécution
